@@ -3,12 +3,12 @@
 {% block content %}
 
 <div class="container">
-	<div class="page-header"><h1>Browse my WikiStack</h1></div>
+	<div class="page-header"><h1>Which did you mean?</h1></div>
 	<ul>
     {% if docs.length > 0 %}
       <ul>
         {% for doc in docs %}
-          <li>{{doc|page_link}}</li>
+          <li><a href="{{doc.url_name}}?f">{{doc.title}}</a> | {{doc.body | truncator}}</li>
         {% endfor %}
       </ul>
     {% else %}

@@ -9,8 +9,9 @@ require('./filters')(swig);
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var add_routes = require('./routes/add')
-var wikiPage = require('./routes/wiki')
+var add_routes = require('./routes/add');
+var wikiPage = require('./routes/wiki');
+var archive = require('./routes/archive');
 
 var app = express();
 app.engine('html', swig.renderFile);
@@ -31,6 +32,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/add', add_routes);
 app.use('/wiki', wikiPage);
+app.use('/archive', archive);
 
 
 // catch 404 and forward to error handler

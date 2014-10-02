@@ -1,25 +1,30 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div id='container'>
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">wikiStack</a>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/add">add page</a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </div>
-</div>
 <div class="container">
 {% for doc in docs %}
 <div class="page-header"><h1>{{doc.title}}</h1></div>
   <p>{{doc.body|markdown}}</p>
 	<br>
+  <a onClick="showHide('edit-form')" >Would you like to edit this page?</a> ||
+  <a href="{{doc.url_name}}/delete">Delete this page?</a> ||
+  <a href="/archive/{{doc.url_name}}">View older versions of this page?</a>
+</div>
+<div class="container">
+    <br>
+    <div id="edit-form" class="hidden">
+    <form action="{{doc.url_name}}/edit" method="post">
+      <div class="form-group">
+        <label class="styled">Page Title</label>
+        <input type="text" class="form-control" name="title" value="{{doc.title}}">
+      </div>
+      <div class="form-group">
+        <label class="styled">Page Content</label>
+        <textarea class="form-control" name="content" rows="20">{{doc.body}}</textarea>
+      </div>
+      <input type="submit" class="btn btn-success"></input>
+      </form>
+    </div>
 </div>
 {% endfor %}
 <div class="container">
