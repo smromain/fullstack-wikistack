@@ -1,0 +1,23 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.page-header > h1, .navbar-brand, .nav, .styled {
+	font-family: 'Economica', sans-serif;
+}
+
+.navbar-brand {
+	font-size: 2.2em;
+}
+ .nav {
+ 	font-size: 1.2em;
+ }
+
+.styled {
+	font-size: 1.6em;
+}
